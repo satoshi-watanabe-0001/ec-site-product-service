@@ -17,10 +17,10 @@ jobs:
         with:
           fetch-depth: 0  # 詳細な分析のための完全な履歴
       
-      - name: Set up JDK ${JAVA_VERSION}
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          java-version: '${JAVA_VERSION}'
+          java-version: '17'
           distribution: 'temurin'
           cache: 'gradle'
       
