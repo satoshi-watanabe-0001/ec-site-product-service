@@ -65,7 +65,7 @@ public class InventoryService {
 
     Pagination pagination =
         Pagination.builder()
-            .page(inventoryPage.getNumber())
+            .page(inventoryPage.getNumber() + 1)
             .perPage(inventoryPage.getSize())
             .total(inventoryPage.getTotalElements())
             .pages(inventoryPage.getTotalPages())

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <!-- Exclude auto-generated code -->
+    <Match>
+        <Class name="~.*\.Application"/>
+    </Match>
+
+    <!-- Exclude DTOs (data classes) -->
+    <Match>
+        <Package name="~.*\.dto"/>
+    </Match>
+
+    <!-- Exclude Entities -->
+    <Match>
+        <Package name="~.*\.entity"/>
+    </Match>
+
+    <!-- Exclude Configuration classes -->
+    <Match>
+        <Package name="~.*\.config"/>
+    </Match>
+
+    <!-- Exclude Exception classes (ErrorResponse) -->
+    <Match>
+        <Package name="~.*\.exception"/>
+    </Match>
+
+    <!-- Exclude test code -->
+    <Match>
+        <Source name="~.*Test\.java"/>
+    </Match>
+
+    <!-- Exclude Lombok-generated code warnings -->
+    <Match>
+        <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2"/>
+    </Match>
+</FindBugsFilter>

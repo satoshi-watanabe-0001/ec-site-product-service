@@ -7,6 +7,9 @@ spring:
   application:
     name: ${SERVICE_NAME:product-service}
   
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    
   datasource:
     url: jdbc:postgresql://localhost:5432/${DB_NAME:ec_site_db}
     username: ${DB_USERNAME:ec_user}
