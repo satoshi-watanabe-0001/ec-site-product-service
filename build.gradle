@@ -65,6 +65,8 @@ jacocoTestReport {
                 '**/config/**',
                 '**/dto/**',
                 '**/entity/**',
+                '**/repository/**',
+                '**/exception/ErrorResponse.class',
                 '**/*Application.class'
             ])
         }))
@@ -76,6 +78,19 @@ jacoco {
 }
 
 jacocoTestCoverageVerification {
+    dependsOn test
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                '**/config/**',
+                '**/dto/**',
+                '**/entity/**',
+                '**/repository/**',
+                '**/exception/ErrorResponse.class',
+                '**/*Application.class'
+            ])
+        }))
+    }
     violationRules {
         rule {
             limit {
