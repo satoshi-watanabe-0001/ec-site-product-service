@@ -1,0 +1,43 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: ${SERVICE_NAME:product-service}
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${DB_NAME:ec_site_db}
+    username: ${DB_USERNAME:ec_user}
+    password: ${DB_PASSWORD:ec_password}
+    driver-class-name: org.postgresql.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        default_schema: product_schema
+
+# Logging Configuration
+logging:
+  level:
+    com.example.ec: INFO
+    org.springframework.security: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Management endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
